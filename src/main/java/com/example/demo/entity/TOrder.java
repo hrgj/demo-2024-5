@@ -1,5 +1,6 @@
 package com.example.demo.entity;
 
+import lombok.Generated;
 import lombok.Getter;
 
 import java.util.Date;

@@ -12,15 +12,27 @@
 
     <!--查询单个-->
     <select id="queryById" resultMap="TOrderMap">
-        select idorder_namepricecreate_timeupdate_time
+        select *
         from t_order
         where id = #{id}
+    </select>
+    <select id="getOrderInfo" resultMap="TOrderMap">
+        select *
+        from t_order
+        <trim prefix="where" prefixOverrides="or">
+            <if test="id!=null">
+                id=#{id}
+            </if>
+            <if test="orderName!=null">
+               or order_name LIKE CONCAT('%', #{orderName}, '%')
+            </if>
+        </trim>
     </select>
 
     <!--查询指定行数据-->
     <select id="queryAllByLimit" resultMap="TOrderMap">
         select
-        idorder_namepricecreate_timeupdate_time
+        *
         from t_order
         <where>
             <if test="id != null">
@@ -67,8 +79,8 @@
 
     <!--新增所有列-->
     <insert id="insert" keyProperty="id" useGeneratedKeys="true">
-        insert into t_order(order_namepricecreate_timeupdate_time)
-        values (#{orderName}#{price}#{createTime}#{updateTime})
+        insert into t_order(order_name,price,create_time,update_time)
+        values (#{orderName},#{price},#{createTime},#{updateTime})
     </insert>
 
     <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">

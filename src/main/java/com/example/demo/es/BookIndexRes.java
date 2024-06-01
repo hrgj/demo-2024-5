@@ -8,15 +8,10 @@ import org.springframework.data.elasticsearch.annotations.FieldType;
 import java.math.BigDecimal;
 
 @Data
-@Document(indexName = "books_")
-public class BookIndex {
-    @Field(type = FieldType.Long)
+public class BookIndexRes {
     private Integer id;
     private Integer bookId;
-    @Field(type = FieldType.Text)
     private String title;
-    @Field(type = FieldType.Text)
     private String author;
-    @Field(type = FieldType.Keyword)
     private BigDecimal price;
 }
