@@ -2,9 +2,11 @@
 <h1>JDK 是17，如果你的版本低于17，把springboot的版本改成2.5以下就行。</h1>
 <h2>还实现了 自定义注解，拦截器</h2>
 <h3>集成 ElasticSearch,实现了ik分词库，维护自己的词库等。</h3>
-![img.png](img.png)
+
+![](img.png)
 需要下载es相同版本的ik
-![img_1.png](img_1.png)
+
+![](img_1.png)
 
 ```
 创建t_order_1、t_order_2、t_order_3 三个表。
