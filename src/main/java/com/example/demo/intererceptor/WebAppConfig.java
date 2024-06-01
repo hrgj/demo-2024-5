@@ -1,7 +1,6 @@
-package com.example.demo.Intererceptor;
+package com.example.demo.intererceptor;
 
 import jakarta.annotation.Resource;
-import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;

@@ -1,4 +1,4 @@
-package com.example.demo.Intererceptor;
+package com.example.demo.intererceptor;
 
 
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -8,7 +8,6 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Method;
@@ -18,7 +17,7 @@ import java.lang.reflect.Method;
 public class LoggableAspect {
     private static final Logger LOGGER = LoggerFactory.getLogger(LoggableAspect.class);
 
-    @Around("@annotation(com.example.demo.Intererceptor.Loggable)")
+    @Around("@annotation(com.example.demo.intererceptor.Loggable)")
     public Object loggable(ProceedingJoinPoint joinPoint) throws Throwable {
         Signature signature = joinPoint.getSignature();
         MethodSignature methodSignature = (MethodSignature) signature;

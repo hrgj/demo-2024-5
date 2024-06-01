@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
 
-import com.example.demo.Intererceptor.Loggable;
+import com.example.demo.intererceptor.Loggable;
 import com.example.demo.entity.TOrder;
 import com.example.demo.service.OrderService;
 import jakarta.annotation.Resource;
