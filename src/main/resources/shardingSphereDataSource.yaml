@@ -1,13 +1,13 @@
 dataSources:
   ds_0:
     dataSourceClassName: com.zaxxer.hikari.HikariDataSource
-    driverClassName: com.mysql.jdbc.Driver
+    driverClassName: com.mysql.cj.jdbc.Driver
     jdbcUrl: jdbc:mysql://localhost:3306/test_db?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=UTF-8
     username: root
     password: 123123
   ds_1:
     dataSourceClassName: com.zaxxer.hikari.HikariDataSource
-    driverClassName: com.mysql.jdbc.Driver
+    driverClassName: com.mysql.cj.jdbc.Driver
     jdbcUrl: jdbc:mysql://localhost:3306/test_db_1?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=UTF-8
     username: root
     password: 123123
@@ -48,12 +48,13 @@ rules:
     defaultShardingColumn: id
     bindingTables:
       - t_order
+#    defaultDataSource: ds_0
     defaultDatabaseStrategy:
       standard:
         shardingColumn: id
         shardingAlgorithmName: database_inline
-    defaultTableStrategy:
-      none:
+#    defaultTableStrategy:
+#      none:
 
     shardingAlgorithms:
       database_inline:
@@ -79,9 +80,11 @@ rules:
 #      sharding_key_required_auditor:
 #        type: DML_SHARDING_CONDITIONS
 
+# 普通表需要放到广播表配置里，不能操作不了
   - !BROADCAST
     tables:
-      - t_address
+      - t_user
+      - t_account
 
 props:
   sql-show: true
